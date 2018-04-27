@@ -274,17 +274,13 @@ HTML;
 	<span>What qualifications do you have?</span>
 	
 	<select class="multiple-choice" multiple>
-		<option value="gcse-min">1-4 O levels / CSEs / GCSEs (any grades), Entry Level, Foundation Diploma</option>
-		<option value="nvq-1">NVQ Level 1, Foundation GNVQ, Basic Skills</option>
-		<option value="gcse-plus">5+ O levels (passes) / CSEs (grade 1) / GCSEs (grades A*- C), School Certificate, 1 A level / 2 - 3 AS levels / VCEs, Higher Diploma</option>
-		<option value="nvq-2">NVQ Level 2, Intermediate GNVQ, City and Guilds Craft, BTEC First / General Diploma, RSA Diploma</option>
+		<option value="gcse">O level / GCSE</option>
+		<option value="nvq">NVQ</option>
 		<option value="apprenticeship">Apprenticeship</option>
-		<option value="a-level">2+ A levels / VCEs, 4+ AS levels, Higher School Certificate, Progression / Advanced Diploma</option>
-		<option value="nvq-3">NVQ Level 3, Advanced GNVQ, City and Guilds Advanced Craft, ONC, OND, BTEC National, RSA Advanced Diploma</option>
-		<option value="degree">Degree (for example BA, BSc), Higher degree (for example MA, PhD, PGCE)</option>
-		<option value="nvq-4">NVQ Level 4 - 5, HNC, HND, RSA Higher Diploma, BTEC Higher Level</option>
-		<option value="professional">Professional qualifications (for example teaching, nursing, accountancy)</option>
-		<option value="other">Other vocational / work-related qualifications</option>
+		<option value="a-level">A level / Advanced Diploma</option>
+		<option value="degree">Degree</option>
+		<option value="professional">Professional qualifications</option>
+		<option value="other">Other qualifications</option>
 		<option value="foreign">Foreign qualifications</option>
 	</select>
 </label>
