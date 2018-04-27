@@ -62,7 +62,7 @@ class FormTest extends TestCase {
 		);
 	}
 
-	public function testSelectNotMultipleViaValue() {
+	public function testSelectSingleViaValue() {
 		$document = new HTMLDocument(Helper::HTML_FORM_WITH_SELECT_SINGLE_AND_MULTIPLE);
 		$singleSelect = $document->querySelector(".single-choice");
 		$singleSelect->value = "white";
@@ -88,7 +88,7 @@ class FormTest extends TestCase {
 		);
 	}
 
-	public function testSelectNotMultipleViaProperty() {
+	public function testSelectSingleViaProperty() {
 		$document = new HTMLDocument(Helper::HTML_FORM_WITH_SELECT_SINGLE_AND_MULTIPLE);
 		$singleSelect = $document->querySelector(".single-choice");
 		$singleSelect->querySelector("[value=white]")->selected = true;
