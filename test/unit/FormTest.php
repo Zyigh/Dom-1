@@ -61,4 +61,30 @@ class FormTest extends TestCase {
 			"Checked attribute should not be present on black radio after setting attribute on white."
 		);
 	}
+
+	public function testSelectNotMultipleViaValue() {
+		$document = new HTMLDocument(Helper::HTML_FORM_WITH_SELECT_SINGLE_AND_MULTIPLE);
+		$singleSelect = $document->querySelector(".single-choice");
+		$singleSelect->value = "white";
+
+		self::assertTrue(
+			$singleSelect->querySelector("[value=white]")->selected,
+			"Selected property should be true on white option after setting select value to white."
+		);
+		self::assertFalse(
+			$singleSelect->querySelector("[value=black]")->selected,
+			"Selected property should be false on black option after setting select value to white."
+		);
+
+		$singleSelect->value = "black";
+
+		self::assertFalse(
+			$singleSelect->querySelector("[value=white]")->selected,
+			"Selected property should be false on white option after setting select value to black."
+		);
+		self::assertTrue(
+			$singleSelect->querySelector("[value=black]")->selected,
+			"Selected property should be true on black option after setting select value to black."
+		);
+	}
 }
