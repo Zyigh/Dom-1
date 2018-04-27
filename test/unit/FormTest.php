@@ -33,4 +33,32 @@ class FormTest extends TestCase {
 			"Checked attribute should be present on black after setting property on black."
 		);
 	}
+
+	public function testMultipleRadioCanNotBeCheckedViaAttribute() {
+		$document = new HTMLDocument(Helper::HTML_FORM_WITH_RADIOS);
+		$whiteRadio = $document->querySelector("input[value=white]");
+		$blackRadio = $document->querySelector("input[value=black]");
+
+		$blackRadio->setAttribute("checked", true);
+
+		self::assertFalse(
+			$whiteRadio->hasAttribute("checked"),
+			"Checked attribute should not be present on white radio after setting attribute on white."
+		);
+		self::assertTrue(
+			$blackRadio->hasAttribute("checked"),
+			"Checked attribute should be present on black radio after setting attribute on black."
+		);
+
+		$whiteRadio->setAttribute("checked", true);
+
+		self::assertTrue(
+			$whiteRadio->hasAttribute("checked"),
+			"Checked attribute should be present on white radio after setting attribute on white."
+		);
+		self::assertFalse(
+			$blackRadio->hasAttribute("checked"),
+			"Checked attribute should not be present on black radio after setting attribute on white."
+		);
+	}
 }
