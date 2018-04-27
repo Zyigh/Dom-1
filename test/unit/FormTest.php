@@ -113,4 +113,40 @@ class FormTest extends TestCase {
 			"Selected property should be true on black option after setting select value to black."
 		);
 	}
+
+	public function testSelectMultipleViaValue() {
+		$document = new HTMLDocument(Helper::HTML_FORM_WITH_SELECT_SINGLE_AND_MULTIPLE);
+		$selectMulti = $document->querySelector(".multiple-choice");
+
+		$selectMulti->querySelector("[value=gcse]")->selected = true;
+		$selectMulti->querySelector("[value=a-level]")->selected = true;
+		$selectMulti->querySelector("[value=degree]")->selected = true;
+
+		self::assertTrue(
+			$selectMulti->querySelector("[value=gcse]")
+				->hasAttribute("selected")
+		);
+		self::assertTrue(
+			$selectMulti->querySelector("[value=a-level]")
+				->hasAttribute("selected")
+		);
+		self::assertTrue(
+			$selectMulti->querySelector("[value=degree]")
+				->hasAttribute("selected")
+		);
+
+		self::assertFalse(
+			$selectMulti->querySelector("[value=nvq]")
+				->hasAttribute("selected")
+		);
+		self::assertFalse(
+			$selectMulti->querySelector("[value=apprenticeship]")
+				->hasAttribute("selected")
+		);
+		self::assertFalse(
+			$selectMulti->querySelector("[value=professional]")
+				->hasAttribute("selected")
+		);
+
+	}
 }
