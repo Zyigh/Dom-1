@@ -3,7 +3,6 @@ namespace Gt\Dom\Test;
 
 use Gt\Dom\HTMLDocument;
 use Gt\Dom\Test\Helper\Helper;
-use Gt\Dom\TokenList;
 use PHPUnit\Framework\TestCase;
 
 class AttrTest extends TestCase {
