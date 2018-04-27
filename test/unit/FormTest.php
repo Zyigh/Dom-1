@@ -87,4 +87,30 @@ class FormTest extends TestCase {
 			"Selected property should be true on black option after setting select value to black."
 		);
 	}
+
+	public function testSelectNotMultipleViaProperty() {
+		$document = new HTMLDocument(Helper::HTML_FORM_WITH_SELECT_SINGLE_AND_MULTIPLE);
+		$singleSelect = $document->querySelector(".single-choice");
+		$singleSelect->querySelector("[value=white]")->selected = true;
+
+		self::assertTrue(
+			$singleSelect->querySelector("[value=white]")->selected,
+			"Selected property should be true on white option after setting select value to white."
+		);
+		self::assertFalse(
+			$singleSelect->querySelector("[value=black]")->selected,
+			"Selected property should be false on black option after setting select value to white."
+		);
+
+		$singleSelect->querySelector("[value=black]")->selected = true;
+
+		self::assertFalse(
+			$singleSelect->querySelector("[value=white]")->selected,
+			"Selected property should be false on white option after setting select value to black."
+		);
+		self::assertTrue(
+			$singleSelect->querySelector("[value=black]")->selected,
+			"Selected property should be true on black option after setting select value to black."
+		);
+	}
 }
